@@ -1,0 +1,26 @@
+
+/*
+S5T66
+*/
+td, th{
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.input-group{
+  margin: 20px 0px;
+}
+
+svg{
+  height: 150px;
+}
+
+/*
+S5T67: fix the size of the google map
+td:first-of-type; means find the first td inside of each row
+td:first-of-type > div: means find the child div of the first td inside of each row 
+*/
+td:first-of-type, td:first-of-type > div {
+  height: 200px;
+  width: 250px;
+}
