@@ -5,10 +5,31 @@ from the course
 */
 
 
-import React, { Component } from 'react'; //create a instance of a certain class
-import ReactDom from 'react-dom'; //render a component to display on a webpage
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
-import App from './components/app';
+//S5T55: after installing redux-promise package using "npm install --save redux-promise", import the package here
+//redux-promise is a popular middleware package.
+//middeware is the functions that can manipulate the result of an action before pass it through all the reducers
+import ReduxPromise from 'redux-promise';
+
+import App from './containers/app';
+import reducers from './reducers';
+
+//S5T55: hook the ReduxPromise here
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <App />
+  </Provider>
+  , document.querySelector('.container'));
+
+
+
+
 
 //step1: create a new component. This component should produce some HTML
 //Note belowing App is actually a class, not an instance!
@@ -100,4 +121,3 @@ const App = function(){
 
 //<App /> is a JSX syntax to create an instance of App class
 //second argument of render() is to indicate where to render the component to
-ReactDom.render(<App />, document.querySelector('.container')); 

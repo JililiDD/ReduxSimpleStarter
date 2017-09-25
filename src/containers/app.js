@@ -1,5 +1,8 @@
 
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 import SearchBar from '../containers/search_bar';
 import VideoDetail from '../containers/video_detail';
 import VideoList from '../containers/video_list';
